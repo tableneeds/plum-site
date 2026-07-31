@@ -2,6 +2,7 @@ require "test_helper"
 
 class MarketingSiteTest < ActionDispatch::IntegrationTest
   setup do
+    reset!
     load Rails.root.join("db/seeds.rb")
   end
 

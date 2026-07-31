@@ -140,7 +140,7 @@ home.update!(
       }
     ]
   }
-) if home.new_record?
+) if home.new_record? || home.data.fetch("sections", []).blank?
 
 why_plum = site.entries.find_or_initialize_by(slug: "why-plum")
 why_plum.update!(
