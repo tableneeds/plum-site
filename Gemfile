@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.5"
+gem "rails", "~> 8.1.3"
 # Use the local engine while plum-site proves Plum as an external dependency.
 gem "plum-cms", "~> 0.1.0"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
