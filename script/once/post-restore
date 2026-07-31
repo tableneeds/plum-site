@@ -1,0 +1,12 @@
+#!/usr/bin/env -S bundle exec ruby
+
+require "fileutils"
+
+storage_path = File.expand_path("../../storage", __dir__)
+backup_path = File.join(storage_path, "once-backup")
+
+Dir.glob(File.join(backup_path, "*.sqlite3")).each do |backup_file|
+  FileUtils.cp(backup_file, File.join(storage_path, File.basename(backup_file)))
+end
+
+FileUtils.rm_rf(backup_path)

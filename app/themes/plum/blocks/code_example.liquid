@@ -1,0 +1,12 @@
+<section class="section code-section">
+  <div class="code-story">
+    {% if block.eyebrow %}<p class="eyebrow">{{ block.eyebrow }}</p>{% endif %}
+    <h2>{{ block.heading }}</h2>
+    <p>{{ block.text }}</p>
+  </div>
+  <figure class="code-window">
+    <div class="code-window-bar"><span></span><span></span><span></span><small>config/initializers/plum.rb</small></div>
+    <pre><code>{{ block.code }}</code></pre>
+    {% if block.caption %}<figcaption>{{ block.caption }}</figcaption>{% endif %}
+  </figure>
+</section>

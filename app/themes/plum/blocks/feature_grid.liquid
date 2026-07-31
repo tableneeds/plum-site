@@ -1,0 +1,12 @@
+<section class="section feature-section">
+  <div class="section-heading">
+    {% if block.eyebrow %}<p class="eyebrow">{{ block.eyebrow }}</p>{% endif %}
+    <h2>{{ block.heading }}</h2>
+    {% if block.introduction %}<p>{{ block.introduction }}</p>{% endif %}
+  </div>
+  <div class="feature-grid">
+    <article><span class="feature-number">01</span><h3>{{ block.first_title }}</h3><p>{{ block.first_text }}</p></article>
+    <article><span class="feature-number">02</span><h3>{{ block.second_title }}</h3><p>{{ block.second_text }}</p></article>
+    <article><span class="feature-number">03</span><h3>{{ block.third_title }}</h3><p>{{ block.third_text }}</p></article>
+  </div>
+</section>

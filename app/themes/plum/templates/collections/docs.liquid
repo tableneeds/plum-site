@@ -1,0 +1,15 @@
+<section class="standard-page">
+  <header class="page-heading">
+    <p class="eyebrow">Learn Plum</p>
+    <h1>Documentation</h1>
+    <p class="page-summary">From your first editable page to a deeply integrated Rails application.</p>
+  </header>
+  <div class="document-grid">
+    {% for doc in collection.entries %}
+      <a class="document-card" href="{{ doc.url }}">
+        <span>{{ doc.title }}</span>
+        <small>{{ doc.data.summary }}</small>
+      </a>
+    {% endfor %}
+  </div>
+</section>

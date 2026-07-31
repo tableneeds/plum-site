@@ -1,0 +1,33 @@
+<div class="docs-shell">
+  <aside class="docs-sidebar">
+    <p class="docs-kicker">Documentation</p>
+    <form class="docs-search" action="/search" method="get" role="search">
+      <label class="visually-hidden" for="docs-query">Search documentation</label>
+      <input id="docs-query" name="q" type="search" placeholder="Search the docs">
+    </form>
+    {% if nav.docs.items.size > 0 %}
+      <nav aria-label="Documentation">
+        {% for item in nav.docs.items %}
+          <a href="{{ item.url }}"{% if item.entry.slug == entry.slug %} class="active" aria-current="page"{% endif %}>{{ item.label }}</a>
+        {% endfor %}
+      </nav>
+    {% endif %}
+  </aside>
+  <article class="docs-article">
+    <p class="eyebrow">Documentation</p>
+    <h1>{{ entry.title }}</h1>
+    {% if entry.data.summary %}<p class="docs-summary">{{ entry.data.summary }}</p>{% endif %}
+    {% assign toc = entry.data.body | table_of_contents %}
+    {% if toc != blank %}
+      <aside class="docs-toc">
+        <strong>On this page</strong>
+        {{ toc }}
+      </aside>
+    {% endif %}
+    <div class="prose">{{ entry.data.body }}</div>
+    <nav class="doc-pagination" aria-label="Documentation pagination">
+      {% if entry.previous.url %}<a class="previous" href="{{ entry.previous.url }}"><small>Previous</small><span>← {{ entry.previous.title }}</span></a>{% endif %}
+      {% if entry.next.url %}<a class="next" href="{{ entry.next.url }}"><small>Next</small><span>{{ entry.next.title }} →</span></a>{% endif %}
+    </nav>
+  </article>
+</div>

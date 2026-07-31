@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if entry.title %}{{ entry.title }} · {% endif %}{{ site.name }}</title>
+    <meta name="description" content="{{ site.seo_description }}">
+    <link rel="icon" href="{{ 'plum-mark.svg' | theme_asset_url }}" type="image/svg+xml">
+    <link rel="stylesheet" href="{{ 'theme.css' | theme_asset_url }}">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="/" aria-label="Plum home">
+        <img class="wordmark-mark" src="{{ 'plum-mark.svg' | theme_asset_url }}" alt="">
+        <span>Plum</span>
+      </a>
+
+      {% if nav.main.items.size > 0 %}
+        <nav class="primary-nav" aria-label="Primary navigation">
+          {% for item in nav.main.items %}
+            <a href="{{ item.url }}">{{ item.label }}</a>
+          {% endfor %}
+        </nav>
+      {% endif %}
+
+      <a class="header-action" href="/docs/getting-started">Get started <span aria-hidden="true">→</span></a>
+    </header>
+
+    <main>{{ content }}</main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="wordmark wordmark-footer" href="/">
+          <img class="wordmark-mark" src="{{ 'plum-mark.svg' | theme_asset_url }}" alt="">
+          <span>Plum</span>
+        </a>
+        <p>The Rails-native CMS.</p>
+      </div>
+      <div class="footer-links">
+        <a href="/docs/getting-started">Documentation</a>
+        <a href="/roadmap">Roadmap</a>
+        <a href="{{ site.theme_settings.github_url }}">GitHub</a>
+      </div>
+      <p class="footer-note">Open source. Self-hosted. Made for Rails.</p>
+    </footer>
+  </body>
+</html>

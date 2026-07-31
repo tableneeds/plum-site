@@ -1,0 +1,13 @@
+{% if entry.slug == "home" %}
+  <div class="home-page">{{ entry.data.sections }}</div>
+{% else %}
+  <article class="standard-page{% if entry.slug == 'why-plum' %} manifesto-page{% elsif entry.slug == 'roadmap' %} roadmap-page{% endif %}">
+    <header class="page-heading">
+      <p class="eyebrow">Plum</p>
+      <h1>{{ entry.title }}</h1>
+      {% if entry.data.summary %}<p class="page-summary">{{ entry.data.summary }}</p>{% endif %}
+    </header>
+    <div class="prose">{{ entry.data.body }}</div>
+    {{ entry.data.sections }}
+  </article>
+{% endif %}

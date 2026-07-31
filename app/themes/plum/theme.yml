@@ -1,0 +1,73 @@
+name: Plum
+handle: plum
+version: 0.1.0
+author: Plum
+category: Documentation
+description: The public theme for plumcms.org.
+settings:
+  fields:
+    - handle: github_url
+      type: text
+      label: GitHub URL
+      default: https://github.com/tableneeds/plum
+blocks:
+  - handle: product_demo
+    label: Product Demo
+    fields:
+      - handle: eyebrow
+        type: text
+        label: Eyebrow
+      - handle: heading
+        type: text
+        label: Heading
+      - handle: introduction
+        type: textarea
+        label: Introduction
+  - handle: feature_grid
+    label: Feature Grid
+    fields:
+      - handle: eyebrow
+        type: text
+        label: Eyebrow
+      - handle: heading
+        type: text
+        label: Heading
+      - handle: introduction
+        type: textarea
+        label: Introduction
+      - handle: first_title
+        type: text
+        label: First title
+      - handle: first_text
+        type: textarea
+        label: First text
+      - handle: second_title
+        type: text
+        label: Second title
+      - handle: second_text
+        type: textarea
+        label: Second text
+      - handle: third_title
+        type: text
+        label: Third title
+      - handle: third_text
+        type: textarea
+        label: Third text
+  - handle: code_example
+    label: Code Example
+    fields:
+      - handle: eyebrow
+        type: text
+        label: Eyebrow
+      - handle: heading
+        type: text
+        label: Heading
+      - handle: text
+        type: textarea
+        label: Text
+      - handle: code
+        type: textarea
+        label: Code
+      - handle: caption
+        type: text
+        label: Caption

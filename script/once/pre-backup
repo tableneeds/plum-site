@@ -1,0 +1,23 @@
+#!/usr/bin/env -S bundle exec ruby
+
+require "fileutils"
+require "sqlite3"
+
+storage_path = File.expand_path("../../storage", __dir__)
+backup_path = File.join(storage_path, "once-backup")
+
+FileUtils.rm_rf(backup_path)
+FileUtils.mkdir_p(backup_path)
+
+Dir.glob(File.join(storage_path, "production*.sqlite3")).sort.each do |source_path|
+  destination_path = File.join(backup_path, File.basename(source_path))
+  source = SQLite3::Database.new(source_path, readonly: true)
+  destination = SQLite3::Database.new(destination_path)
+  backup = SQLite3::Backup.new(destination, "main", source, "main")
+
+  backup.step(-1)
+  backup.finish
+ensure
+  destination&.close
+  source&.close
+end

@@ -1,0 +1,45 @@
+<section class="section product-demo">
+  <div class="section-heading">
+    {% if block.eyebrow %}<p class="eyebrow">{{ block.eyebrow }}</p>{% endif %}
+    <h2>{{ block.heading }}</h2>
+    {% if block.introduction %}<p>{{ block.introduction }}</p>{% endif %}
+  </div>
+
+  <div class="demo-flow" aria-label="Define, edit, and render content with Plum">
+    <article class="demo-panel demo-code">
+      <header><span>1</span><strong>Define</strong><small>blueprint</small></header>
+      <pre><code>{
+  "handle": "case_studies",
+  "fields": [
+    { "handle": "client",
+      "type": "text" },
+    { "handle": "body",
+      "type": "rich_text" }
+  ]
+}</code></pre>
+    </article>
+
+    <article class="demo-panel demo-editor">
+      <header><span>2</span><strong>Edit</strong><small>Hotwire control panel</small></header>
+      <div class="editor-canvas">
+        <label>Title<input value="A calmer way to publish" readonly></label>
+        <label>Client<input value="Acme & Co." readonly></label>
+        <label>Body</label>
+        <div class="editor-toolbar"><b>B</b><i>I</i><span>Link</span><span>List</span></div>
+        <div class="editor-body"><strong>Content belongs with the application.</strong><br>Editors get a focused place to work.</div>
+        <div class="editor-status"><span>Published</span><button type="button">Save entry</button></div>
+      </div>
+    </article>
+
+    <article class="demo-panel demo-render">
+      <header><span>3</span><strong>Render</strong><small>Liquid theme</small></header>
+      <div class="render-code"><code>{% raw %}&lt;h1&gt;{{ entry.title }}&lt;/h1&gt;<br>{{ entry.data.body }}{% endraw %}</code></div>
+      <div class="rendered-card">
+        <small>ACME &amp; CO.</small>
+        <h3>A calmer way to publish</h3>
+        <p>Content belongs with the application.</p>
+        <a href="#">Read the case study →</a>
+      </div>
+    </article>
+  </div>
+</section>

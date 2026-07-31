@@ -1,0 +1,14 @@
+<section class="hero">
+  <div class="plumb-line" aria-hidden="true">
+    <span class="plumb-line-cord"></span>
+    <img src="{{ 'plum-bob.svg' | theme_asset_url }}" alt="">
+  </div>
+  <p class="hero-kicker">Content management, the Rails way</p>
+  <h1>{{ block.heading }}</h1>
+  {% if block.subheading %}<p class="hero-copy">{{ block.subheading }}</p>{% endif %}
+  <div class="hero-actions">
+    {% if block.button_label and block.button_url %}<a class="button button-primary" href="{{ block.button_url }}">{{ block.button_label }} <span aria-hidden="true">→</span></a>{% endif %}
+    <a class="button button-secondary" href="{{ site.theme_settings.github_url }}">View on GitHub</a>
+  </div>
+  <p class="hero-note"><span></span> Open source · Self-hosted · SQLite and PostgreSQL</p>
+</section>

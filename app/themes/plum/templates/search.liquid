@@ -1,0 +1,18 @@
+<section class="standard-page search-page">
+  <header class="page-heading">
+    <p class="eyebrow">Documentation</p>
+    <h1>Search Plum</h1>
+    <form class="search-form" action="/search" method="get" role="search">
+      <label for="search-query">What are you looking for?</label>
+      <div><input id="search-query" name="q" type="search" value="{{ search.query }}" autofocus><button type="submit">Search</button></div>
+    </form>
+  </header>
+  {% if search.query != blank %}
+    <p class="search-count">{{ search.results.size }} results for “{{ search.query }}”</p>
+    <div class="search-results">
+      {% for result in search.results %}
+        <a href="{{ result.url }}"><strong>{{ result.title }}</strong><span>{{ result.data.summary }}</span></a>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>

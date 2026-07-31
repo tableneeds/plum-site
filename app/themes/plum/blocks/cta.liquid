@@ -1,0 +1,6 @@
+<section class="closing-cta">
+  <p class="eyebrow">Start building</p>
+  <h2>{{ block.heading }}</h2>
+  {% if block.text %}<p>{{ block.text }}</p>{% endif %}
+  {% if block.button_label and block.button_url %}<a class="button button-light" href="{{ block.button_url }}">{{ block.button_label }} <span aria-hidden="true">→</span></a>{% endif %}
+</section>
