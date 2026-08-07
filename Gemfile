@@ -2,8 +2,8 @@ source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.5"
-# Use the local engine while plum-site proves Plum as an external dependency.
-gem "plum-cms", "~> 0.1.0"
+# Consume the same released package external Plum applications install.
+gem "plum-cms", "~> 0.2.0"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use sqlite3 as the database for Active Record

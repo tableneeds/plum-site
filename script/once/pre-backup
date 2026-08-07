@@ -3,7 +3,7 @@
 require "fileutils"
 require "sqlite3"
 
-storage_path = File.expand_path("../../storage", __dir__)
+storage_path = File.expand_path(ENV.fetch("PLUM_STORAGE_PATH", "../../storage"), __dir__)
 backup_path = File.join(storage_path, "once-backup")
 
 FileUtils.rm_rf(backup_path)

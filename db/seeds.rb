@@ -173,12 +173,12 @@ roadmap.update!(
   data: {
     "summary" => "Plum's roadmap is organized around useful outcomes rather than promised dates.",
     "body" => <<~HTML
-      <h2>Now: make Plum adoptable</h2>
-      <p>Build this site with Plum, publish the gem, document the current product, and prove a portable Rails and SQLite deployment with dependable backups.</p>
-      <h2>Next: editorial confidence</h2>
-      <p>Add preview, revisions, rollback, scheduled publishing, multi-entry relationships, reusable sections, and complete content export and restore workflows.</p>
-      <h2>Later: a Rails content ecosystem</h2>
-      <p>Develop a thin Plum CLI, starter applications, extension contracts, and a collection of excellent themes and blocks for Rails developers and agencies.</p>
+      <h2>Shipped: Plum 0.2.0</h2>
+      <p>The authoring foundation now includes 21 blueprint field types, reusable fieldsets, assets and focal points, relationships, taxonomies, revisions, scheduled publishing, localization, and a live-only content API.</p>
+      <h2>Now: production readiness</h2>
+      <p>Prove external installation and upgrades through this application, ship portable site archives in the next gem release, and complete recovery testing, deployment guidance, SEO, redirects, sitemaps, feeds, and secure previews.</p>
+      <h2>Next: repeatable adoption</h2>
+      <p>Develop a thin Plum CLI, starter applications, theme packaging, importers, addon discovery, and a collection of excellent themes and blocks for Rails developers and agencies.</p>
       <h2>Plum 1.0</h2>
       <p>Another Rails developer can reproduce what powers this site without private knowledge, special patches, or a second application stack.</p>
     HTML
@@ -192,14 +192,14 @@ documentation = [
     section: "Start",
     summary: "Install Plum and publish your first editable page.",
     body: <<~HTML
-      <p>Plum is a mountable Rails engine. During development, add it from a local path or Git source.</p>
-      <pre><code>gem "plum", path: "../Plum"</code></pre>
+      <p>Plum is a mountable Rails engine distributed as the <code>plum-cms</code> gem.</p>
+      <pre><code>gem "plum-cms", "~&gt; 0.2.0"</code></pre>
       <p>Install the engine, Active Storage tables, and database schema:</p>
       <pre><code>bundle install
 bin/rails generate plum:install --mount-path=/
 bin/rails active_storage:install
 bin/rails db:migrate</code></pre>
-      <p>The public site is now available at <code>/</code>, with the control panel at <code>/cp</code>. The generated initializer contains the standalone defaults and examples for embedding Plum in a host application.</p>
+      <p>The public site is now available at <code>/</code>, with the control panel at <code>/cp</code>. The generated initializer contains standalone defaults and examples for embedding Plum in a host application.</p>
       <h2>Choose a theme</h2>
       <p>Host themes live under <code>app/themes</code>. Set the site's theme handle, create a Pages content type, and publish an entry with the reserved <code>home</code> slug to control the homepage.</p>
     HTML

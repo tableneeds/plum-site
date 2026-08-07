@@ -6,7 +6,8 @@ The site deliberately keeps its content, editor, rendering, jobs, and SQLite dat
 
 ## Development
 
-The application requires Ruby 3.3.1 and SQLite.
+The application requires Ruby 3.3.1 and SQLite. It consumes the released
+`plum-cms` 0.2 series from RubyGems; it does not use a sibling checkout.
 
 ```sh
 bin/setup
@@ -19,6 +20,7 @@ Run the checks with:
 
 ```sh
 bin/rails test
+bin/rails test:system
 bin/rubocop
 ```
 
@@ -37,6 +39,9 @@ The image follows the ONCE application contract:
 - SQLite databases and uploads live in `/rails/storage` (also mounted by ONCE at `/storage`).
 - `/hooks/pre-backup` safely snapshots the live SQLite databases.
 - `/hooks/post-restore` restores those snapshots after an ONCE restore.
+
+The hooks accept `PLUM_STORAGE_PATH` for isolated recovery tests; production
+uses `/rails/storage` by default.
 
 Required production variables:
 
