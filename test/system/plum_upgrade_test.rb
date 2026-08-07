@@ -17,6 +17,10 @@ class PlumUpgradeTest < ApplicationSystemTestCase
 
     click_link "New Type"
     click_button "Add Field"
+    unless page.has_css?("[data-plum--blueprint-target='field']", wait: 5)
+      browser_messages = page.driver.browser.logs.get(:browser).map(&:message)
+      flunk "Blueprint controller did not respond. Browser console:\n#{browser_messages.join("\n")}"
+    end
 
     within("[data-plum--blueprint-target='field']") do
       find("[data-field='handle']").fill_in with: "team"
