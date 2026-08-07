@@ -16,7 +16,7 @@ class PlumUpgradeTest < ApplicationSystemTestCase
     assert_text "Dashboard"
 
     click_link "New Type"
-    click_button "Add Field"
+    wait_for_blueprint_controller
     unless page.has_css?("[data-plum--blueprint-target='field']", wait: 5)
       browser_messages = page.driver.browser.logs.get(:browser).map(&:message)
       flunk "Blueprint controller did not respond. Browser console:\n#{browser_messages.join("\n")}"
@@ -27,6 +27,17 @@ class PlumUpgradeTest < ApplicationSystemTestCase
       find("[data-field='type']").select "Repeater"
       assert_selector "[data-field='min_items']"
       assert_button "Add nested field"
+    end
+  end
+
+  private
+
+  def wait_for_blueprint_controller
+    Timeout.timeout(Capybara.default_max_wait_time) do
+      loop do
+        click_button "Add Field"
+        break if page.has_css?("[data-plum--blueprint-target='field']", wait: 0.25)
+      end
     end
   end
 end
