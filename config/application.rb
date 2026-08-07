@@ -16,11 +16,6 @@ module PlumSite
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
-    # Plum 0.2.0 maps controllers beneath `plum/`, so Propshaft must build its
-    # resolver from the parent directory. Remove after upgrading to a release
-    # containing Plum's corrected engine asset path.
-    config.assets.paths << Plum::Engine.root.join("app/javascript/controllers")
-
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
