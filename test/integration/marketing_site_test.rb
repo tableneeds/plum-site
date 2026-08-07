@@ -75,6 +75,8 @@ class MarketingSiteTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "link[href*='lexxy'][rel='stylesheet']"
     assert_select "link[href*='plum/control_panel'][rel='stylesheet']"
+    assert_includes response.body, "controllers/plum/blueprint_controller"
+    assert Rails.application.assets.load_path.find("plum/blueprint_controller.js")
   end
 
   test "theme asset is served through Plum" do
